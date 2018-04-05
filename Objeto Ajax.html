@@ -1,0 +1,59 @@
+<html>
+<body>
+
+    
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12 text-center">
+           <h1>Ajax Web!</h1>
+           </div>
+            Ejemplo de Actualizar contenido de pagina web con ajax
+            <div class="col-md-6 caja col-centrar">
+              <div class="contenido" id="contenido"></div>
+			 <script>
+			 var contenido=document.getElementById('contenido');
+			 if(window.XMLHttpRequest){
+			 //ajax navegadores
+			 ajax=new XMLHttpRequest();
+			 }else{
+			 //ajax internet explorer
+			 ajax= new ActiveXOject('Microsoft.XMLHTTP');
+			 }
+			 function miFuncionProcesadora(){
+			 if(ajax.readyState==4 && ajax.status==200){
+			 contenido.innerHTML=ajax.responseText.replace(/</g,"&lt;");
+			 }
+			 
+			 
+			 }
+			 ajax.onreadystatechange=miFuncionProcesadora;
+			 ajax.open("GET",'datos.html');
+			 ajax.send();
+			 
+			 
+			 </script>
+                
+            </div>
+        </div>
+        
+    </div>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+<html>
